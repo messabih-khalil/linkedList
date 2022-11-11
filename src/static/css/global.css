@@ -1,0 +1,22 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* global style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow", sans-serif;
+}
+
+html {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(194, 194, 194) 1px,
+    transparent 0
+  );
+  background-size: 25px 25px;
+  box-shadow: inset -2px 0px 0px 15px rgb(255 255 255);
+  margin: 0;
+}
