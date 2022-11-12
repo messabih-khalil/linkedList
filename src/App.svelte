@@ -1,6 +1,8 @@
 <script>
+  import Code from "./lib/Code.svelte";
   import Navbar from "./lib/Navbar.svelte";
   import Opertion from "./lib/Opertion.svelte";
+  import VisualLink from "./lib/VisualLink.svelte";
 </script>
 
 <body>
@@ -9,7 +11,7 @@
 
   <!-- visual linked list -->
   <div class="visual-list">
-    s
+    <VisualLink />
   </div>
   <!-- code editor and list operation -->
   <div class="code-operation">
@@ -19,7 +21,7 @@
     </div>
     <!-- code -->
     <div class="code">
-
+      <Code />
     </div>
   </div>
 </body>
@@ -33,7 +35,6 @@
   }
 
   .code-operation{
-    background-color: green;
     width: 100%;
     height: 40vh;
     display: flex;
@@ -43,6 +44,11 @@
     background-color: brown;
     width: 30%;
     height: 100%;
+  }
+
+  .code{
+    font-size: 1.5rem;
+   
   }
 </style>
 

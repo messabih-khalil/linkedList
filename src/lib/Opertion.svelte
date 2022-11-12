@@ -12,8 +12,10 @@
     let dropDown = '';
 
     const showDropDown = (drop) => {
-        dropDown = drop
-        console.log();
+        (dropDown === '')? 
+        dropDown = drop : 
+        dropDown = ''
+        
     }
 </script>
 
@@ -47,15 +49,15 @@
             </div>
             <!-- User define -->
             <div class="operation-body-action">
-                <div class="operation-body-action-title">
+                <button class="operation-body-action-title" on:click={()=> showDropDown("userCreate")}>
                     <p>
                         User Define List
                     </p>
                     <!-- icon -->
                     <i class="ri-arrow-drop-down-line"></i>
-                </div>
+                </button>
                 <!-- operation drop down -->
-                <div class="operation-dropdown" class:show-dropdown={dropDown === "UserCreate"}>
+                <div class="operation-dropdown" class:show-dropdown={dropDown === "userCreate"}>
                     <div class="input" > 
                         <input type="text" placeholder="[1,5,7,81,45,12,10,11]">
                     </div>
@@ -64,19 +66,147 @@
             </div>
         {/if}
         {#if activeTabs === "Insert"}
-            <p>
-                Insert
-            </p>
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("insertHead")}>
+                <p>
+                    Add in first
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "insertHead"}>
+                <div class="input"> 
+                    <input type="number" placeholder="Value">
+                </div>
+                <button>Add</button>
+            </div>
+        </div>
+        <!-- in the end -->
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("insertTail")}>
+                <p>
+                    Insert at the end
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "insertTail"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Add</button>
+            </div>
+        </div>
+
+        <!-- Before -->
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("insertBefore")}>
+                <p>
+                    Insert Before
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "insertBefore"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Add</button>
+            </div>
+        </div>
+          <!-- After -->
+          <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("InsertAfter")}>
+                <p>
+                    Insert After
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "InsertAfter"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Add</button>
+            </div>
+        </div>
         {/if}
         {#if activeTabs === "Delete"}
-            <p>
-                Delete
-            </p>
+            <!-- Delete first elements -->
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("deleteHead")}>
+                <p>
+                    Delete Head
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "deleteHead"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Delete</button>
+            </div>
+        </div>
+        <!-- Delete last elements -->
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("deleteTail")}>
+                <p>
+                    Delete Tail
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "deleteTail"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Delete</button>
+            </div>
+        </div>
+
+        <!-- Delete specified element -->
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("deleteElements")}>
+                <p>
+                    Delete specified element
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "deleteElements"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Delete</button>
+            </div>
+        </div>
         {/if}
         {#if activeTabs === "Search"}
-            <p>
-                Search
-            </p>
+            <!-- Search element -->
+        <div class="operation-body-action">
+            <button class="operation-body-action-title" on:click={()=> showDropDown("search")}>
+                <p>
+                    Find an item
+                </p>
+                <!-- icon -->
+                <i class="ri-arrow-drop-down-line"></i>
+            </button>
+            <!-- operation drop down -->
+            <div class="operation-dropdown" class:show-dropdown={dropDown === "search"}>
+                <div class="input" > 
+                    <input type="text" placeholder="Value">
+                </div>
+                <button>Search</button>
+            </div>
+        </div>
         {/if}
     </div>
 </main>
@@ -126,11 +256,14 @@
         color: white;
         font-weight: 600;
         cursor: pointer;
+        background-color: black;
+        width: 100%;
     }
 
     .operation-dropdown{
         padding: 1rem;
         background-color: blueviolet;
+        width: 100%;
         display: none;
     }
     .show-dropdown{
@@ -149,7 +282,7 @@
         outline: none;
     }
 
-    .operation-body button{
+    .operation-dropdown button{
         padding: .5rem 3rem;
         margin-top: 1rem;
         font-weight: 600;

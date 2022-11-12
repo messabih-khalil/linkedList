@@ -11,9 +11,12 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.1.0",
     "svelte": "^3.52.0",
+    "svelte-highlight": "^6.2.1",
     "vite": "^3.2.3"
   },
   "dependencies": {
-    "remixicon": "^2.5.0"
+    "highlight.js": "^11.6.0",
+    "remixicon": "^2.5.0",
+    "uuid": "^9.0.0"
   }
 }
